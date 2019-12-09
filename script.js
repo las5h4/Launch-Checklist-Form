@@ -11,3 +11,22 @@
 </ol>
 <img src="${}">
 */
+window.addEventListener("load", function(){
+   let form = this.document.getElementById("launchForm")
+   form.addEventListener("submit", function(){
+      let pilotNameInput = document.querySelector("input[name=pilotName]")
+      let copilotNameInput = document.querySelector("input[name=copilotName]")
+      let fuelLevelInput = document.querySelector("input[name=fuelLevel]")
+      let cargoMassInput = document.querySelector("input[name=cargoMass]")
+      // console.log(pilotNameInput)
+      if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
+         window.alert("All fields required.")
+         event.preventDefault()
+         
+      } else if (isNaN(pilotNameInput.value) === false || isNaN(copilotNameInput.value) === false || isNaN(fuelLevelInput.value) === true || isNaN(cargoMassInput.value) === true) {
+         window.alert("One or more inputs are invalid.")
+         event.preventDefault()
+      }
+      
+   })
+})
