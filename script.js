@@ -12,12 +12,13 @@
 <img src="${}">
 */
 window.addEventListener("load", function(){
-   let form = this.document.getElementById("launchForm")
+   let form = document.getElementById("launchForm")
    form.addEventListener("submit", function(){
       let pilotNameInput = document.querySelector("input[name=pilotName]")
       let copilotNameInput = document.querySelector("input[name=copilotName]")
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]")
       let cargoMassInput = document.querySelector("input[name=cargoMass]")
+      let faultyItems = document.getElementById("faultyItems")     
       // console.log(pilotNameInput)
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          window.alert("All fields required.")
@@ -27,6 +28,14 @@ window.addEventListener("load", function(){
          window.alert("One or more inputs are invalid.")
          event.preventDefault()
       }
+      if (Number(fuelLevelInput.value) < 10000) {
+         faultyItems.style.visibility = "visible"
+      } 
       
    })
+   // let formSubmit = document.getElementById("formSubmit")
+   // formSubmit.addEventListener("click", function(){
+   //    let faultyItems = document.getElementById("faultyItems")
+   //    faultyItems.style.visibility = "visible"
+   // })
 })
