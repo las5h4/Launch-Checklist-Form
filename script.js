@@ -13,29 +13,20 @@
 */
 window.addEventListener("load", function(){
    let form = document.getElementById("launchForm")
-   form.addEventListener("submit", function(){
+   form.addEventListener("submit", function(event){
       let pilotNameInput = document.querySelector("input[name=pilotName]")
       let copilotNameInput = document.querySelector("input[name=copilotName]")
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]")
-      let cargoMassInput = document.querySelector("input[name=cargoMass]")
-      let faultyItems = document.getElementById("faultyItems")     
-      // console.log(pilotNameInput)
+      let cargoMassInput = document.querySelector("input[name=cargoMass]")      
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
-         window.alert("All fields required.")
-         event.preventDefault()
-         
+         alert("All fields required.")
+         event.preventDefault()         
       } else if (isNaN(pilotNameInput.value) === false || isNaN(copilotNameInput.value) === false || isNaN(fuelLevelInput.value) === true || isNaN(cargoMassInput.value) === true) {
-         window.alert("One or more inputs are invalid.")
+         alert("One or more inputs are invalid.")
          event.preventDefault()
-      }
-      if (Number(fuelLevelInput.value) < 10000) {
+      } else if (fuelLevelInput.value < 10000) {
          faultyItems.style.visibility = "visible"
+         console.log("hello")
       } 
-      
    })
-   // let formSubmit = document.getElementById("formSubmit")
-   // formSubmit.addEventListener("click", function(){
-   //    let faultyItems = document.getElementById("faultyItems")
-   //    faultyItems.style.visibility = "visible"
-   // })
 })
